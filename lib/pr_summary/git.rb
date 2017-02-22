@@ -23,7 +23,7 @@ module PrSummary
       def call(cmd)
         temp_file do |path|
           git_cmd = "git #{cmd} > #{path}"
-          puts git_cmd
+          puts git_cmd if ENV["DEBUG"]
           system(git_cmd)
         end
       end
